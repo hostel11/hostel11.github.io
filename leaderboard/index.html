@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel11 - Leaderboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Hostel11</div>
+      <div class="profile-container">
+        <img id="profileImg" class="profile-img" src="/api/placeholder/40/40" alt="Profile">
+        <div id="profileDropdown" class="profile-dropdown">
+          <div class="welcome-message">Welcome, <span id="username" class="username">User</span>!</div>
+          <div id="authButtons">
+            <!-- Auth buttons will be dynamically inserted here based on auth state -->
+          </div>
+          <div class="theme-switch-container">
+            <span class="theme-label">Dark Mode</span>
+            <label class="switch">
+              <input type="checkbox" id="themeSwitch">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <button class="back-btn" id="backToHome">
+      <i class="material-icons">arrow_back</i> Back to Home
+    </button>
+
+    <div id="authContent">
+      <!-- Content will be shown here if user is authenticated -->
+    </div>
+
+    <div id="leaderboardContainer" class="leaderboard-container">
+      <div class="leaderboard-header">
+        <h2 class="leaderboard-title">Leaderboard</h2>
+        <div class="filter-dropdown">
+          <button class="filter-btn">
+            All Time <i class="material-icons">arrow_drop_down</i>
+          </button>
+          <div class="filter-options">
+            <div class="filter-option" data-filter="all-time">All Time</div>
+            <div class="filter-option" data-filter="this-month">This Month</div>
+            <div class="filter-option" data-filter="this-week">This Week</div>
+          </div>
+        </div>
+      </div>
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <!-- Leaderboard data will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

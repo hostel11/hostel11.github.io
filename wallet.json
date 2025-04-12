@@ -1,17 +1,26 @@
 [
-  {
-      "email": "phylum30@gmail.com",
-      "balance": "50",
-      "mobile": "1234567890"
-  },
-  {
-      "email": "emailaditya29@gmail.com",
-      "balance": "101",
-      "mobile": "1234567890"
-  },
-  {
-      "email": "hrishi.joshi0928@gmail.com",
-      "balance": "11",
-      "mobile": "9834584368"
-  }
+    {
+        "email": "phylum30@gmail.com",
+        "balance": "100",
+        "mobile": "1234567890",
+        "transactions": "+200 (winning),-50 (Platform Fee),+100 (Winning),-100 (Withdrawal),-50 (Withdrawal)"
+    },
+    {
+        "email": "emailaditya29@gmail.com",
+        "balance": "100",
+        "mobile": "1234567890",
+        "transactions": "+200 (winning),-50 (Platform Fee),+100 (Winning),-100 (Withdrawal),-50 (Withdrawal)"
+    },
+    {
+        "email": "hrishi.joshi0928@gmail.com",
+        "balance": "11",
+        "mobile": "9834584368",
+        "transactions": "+11 (winning)"
+    },
+    {
+        "email": "ashtvinayaktidake@gmail.com",
+        "balance": "100",
+        "mobile": "8888287168",
+        "transactions": "+200 (winning),-50 (Platform Fee),+100 (Winning),-100 (Withdrawal),-50 (Withdrawal)"
+    }
 ]

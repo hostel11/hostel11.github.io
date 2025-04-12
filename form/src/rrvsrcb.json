@@ -1,0 +1,55 @@
+{
+    "title": "Play & Win",
+    "subtitle": "RR vs RCB (13-Apr-2025)",
+    "questions": [
+        {
+            "id": "q1",
+            "title": "Who will win the toss?",
+            "options": [
+                "RR",
+                "RCB"
+            ]
+        },
+        {
+            "id": "q2",
+            "title": "How much RR will score?",
+            "options": [
+                "Below or equal to 100",
+                "101 to 120",
+                "121 to 140",
+                "141 to 160",
+                "161 to 180",
+                "181 to 200",
+                "201 to 220",
+                "221 to 240",
+                "240 to 260",
+                "261 or above"
+            ]
+        },
+        {
+            "id": "q3",
+            "title": "How much RCB will score?",
+            "options": [
+                "Below or equal to 100",
+                "101 to 120",
+                "121 to 140",
+                "141 to 160",
+                "161 to 180",
+                "181 to 200",
+                "201 to 220",
+                "221 to 240",
+                "240 to 260",
+                "261 or above"
+            ]
+        },
+        {
+            "id": "q4",
+            "title": "Who will win the Match?",
+            "options": [
+                "RR",
+                "RCB"
+            ]
+        }
+    ],
+    "submitUrl": "https://script.google.com/macros/s/AKfycbw3EplIto8XYOJjDKSmQGS12SN9u-P8lnDpxbginWbSihOnYvFdOxYBmdSeUGL8OaQN/exec"
+}

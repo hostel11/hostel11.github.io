@@ -156,7 +156,6 @@ logoutDropdownBtn.addEventListener('click', function() {
     });
 });
 
-// Fetch wallet data
 async function fetchWalletData() {
     try {
         // Generate timestamp to prevent caching
@@ -164,7 +163,7 @@ async function fetchWalletData() {
         const pad = n => n.toString().padStart(2, '0');
         const timestamp = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
-        const url = `https://hostel11.github.io/wallet.json?ts=${timestamp}`;
+        const url = `/wallet.json?ts=${timestamp}`;
 
         // Fetch wallet data from the URL
         const response = await fetch(url);
@@ -190,8 +189,16 @@ async function fetchWalletData() {
             // Update last updated timestamp
             const now = new Date();
             lastUpdated.textContent = `Last updated: ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+            
+            // Display transactions if available
+            if (userWallet.transactions) {
+                displayTransactions(userWallet.transactions);
+            } else {
+                displayTransactions([]); // No transactions
+            }
         } else {
             balanceAmount.textContent = '₹0.00';
+            displayTransactions([]); // No transactions
         }
     } catch (error) {
         console.error("Error fetching wallet data:", error);
@@ -419,6 +426,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize UPI tab as active by default
     document.querySelector('.tab[data-tab="upi"]').click();
     
+    // Initialize transactions tab as active by default 
+    document.querySelector('.tab2[data-tab="transactions"]').click();
+    
     // Check for any saved theme preference
     initializeTheme();
 });
@@ -461,3 +471,76 @@ document.addEventListener('DOMContentLoaded', function() {
   // goToLink('wallet');           // Navigates to current path + /wallet
   // goToLink('/wallet');          // Navigates to domain root + /wallet
   // goToLink('https://example.com/wallet'); // Navigates to full URL
+
+  // Transaction tab functionality
+const tabs2 = document.querySelectorAll('.tab2');
+tabs2.forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Remove active class from all tabs
+        tabs2.forEach(t => t.classList.remove('active'));
+
+        // Add active class to clicked tab
+        tab.classList.add('active');
+
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content2').forEach(content => {
+            content.classList.remove('active');
+        });
+
+        // Show selected tab content
+        const tabId = tab.getAttribute('data-tab');
+        document.getElementById(`${tabId}-content`).classList.add('active');
+    });
+});
+
+// Function to display transactions
+function displayTransactions(transactions) {
+    const transactionsList = document.getElementById('transactions-list');
+    const noTransactions = document.getElementById('no-transactions');
+    
+    // Clear previous content
+    transactionsList.innerHTML = '';
+    
+    if (!transactions || transactions.length === 0) {
+        // Show no transactions message
+        noTransactions.style.display = 'block';
+        transactionsList.style.display = 'none';
+        return;
+    }
+    
+    // Hide no transactions message
+    noTransactions.style.display = 'none';
+    transactionsList.style.display = 'block';
+    
+    // Parse transactions and reverse the order
+    const transactionItems = transactions.split(',').reverse(); // ← This line is the key
+    
+    transactionItems.forEach((item, index) => {
+        // Parse transaction string like "+100 (Winning)" or "-76 (Withdrawal)"
+        const match = item.trim().match(/([+-]\d+)\s*\(([^)]+)\)/);
+        
+        if (match) {
+            const amount = match[1];
+            const reference = match[2];
+            const isCredit = amount.startsWith('+');
+            
+            // Create transaction element
+            const transactionEl = document.createElement('div');
+            transactionEl.className = 'transaction-item';
+            transactionEl.innerHTML = `
+                <div class="transaction-icon ${isCredit ? 'credit' : 'debit'}">
+                    ${isCredit ? '+' : '-'}
+                </div>
+                <div class="transaction-details">
+                    <div class="transaction-info">${isCredit ? 'Credit' : 'Debit'}</div>
+                    <div class="transaction-reference">${reference}</div>
+                </div>
+                <div class="transaction-amount ${isCredit ? 'credit' : 'debit'}">
+                    ${amount}
+                </div>
+            `;
+            
+            transactionsList.appendChild(transactionEl);
+        }
+    });
+}
