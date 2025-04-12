@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="user-profile">
+    <span id="user-names">Hostel11</span>
+    <div id="profile-pic-container">
+      <img id="profile-pic" src="/api/placeholder/40/40" alt="Profile Picture">
+      <div id="profile-dropdown">
+        <div class="dropdown-header">
+          <h4 id="dropdown-username">User</h4>
+          <small id="dropdown-email">user@example.com</small>
+        </div>
+        <div class="dropdown-menu">
+          <div class="dropdown-item" id="home-btn">
+            <i class="fas fa-home"></i> Home
+          </div>
+          <div class="dropdown-item" id="contact-btn">
+            <i class="fas fa-envelope"></i> Contact Us
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-item" id="logout-dropdown-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="theme-toggle">
+            <span>
+              <i class="fas fa-moon"></i>
+              Dark Mode
+            </span>
+            <label class="switch">
+              <input type="checkbox" id="theme-toggle-switch">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="wallet-content">
+    <div class="header">
+      <h1>Wallet</h1>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-title">AVAILABLE BALANCE</div>
+      <div class="balance-amount" id="balance-amount">₹0.00</div>
+      <div class="balance-title" id="last-updated">Last updated: N/A</div>
+    </div>
+
+    <div class="section-title">Withdrawal Amount</div>
+    <div class="form-group">
+      <label for="amount">How much would you like to withdraw?</label>
+      <input type="number" id="amount" placeholder="Enter amount" min="1">
+      <div class="error-message" id="amount-error">Withdrawal amount cannot exceed your available balance</div>
+    </div>
+
+    <div class="success-message" id="success-message">Your withdrawal request has been raised and will be processed by
+      12:01 AM! Keep checking your Email for further updates...</div>
+    <div class="section-title">Withdrawal Method</div>
+    <div class="tabs">
+      <div class="tab active" data-tab="upi">UPI Transfer</div>
+      <div class="tab" data-tab="voucher">Gift Vouchers</div>
+    </div>
+
+    <div class="tab-content active" id="upi-content">
+      <div class="form-group">
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" placeholder="Enter your mobile number" maxlength="10">
+      </div>
+      <div class="form-group">
+        <label for="upi-id">UPI ID (Optional)</label>
+        <input type="text" id="upi-id" placeholder="yourname@upi">
+      </div>
+      <div class="error-message" id="upi-min-error">Minimum withdrawal amount for UPI transfer is ₹50</div>
+    </div>
+
+    <div class="tab-content" id="voucher-content">
+      <div class="voucher-item" data-min="10" onclick="selectVoucher(this)">
+        <div class="voucher-logo">
+          <!-- Amazon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+            <path fill="#FFB300"
+              d="M39.6,39c-4.2,3.1-10.5,5-15.6,5c-7.3,0-13.8-2.9-18.8-7.4c-0.4-0.4,0-0.8,0.4-0.6c5.4,3.1,11.5,4.9,18.3,4.9c4.6,0,10.4-1,15.1-3C39.7,37.7,40.3,38.5,39.6,39z M41.1,36.9c-0.5-0.7-3.5-0.3-4.8-0.2c-0.4,0-0.5-0.3-0.1-0.6c2.3-1.7,6.2-1.2,6.6-0.6c0.4,0.6-0.1,4.5-2.3,6.3c-0.3,0.3-0.7,0.1-0.5-0.2C40.5,40.4,41.6,37.6,41.1,36.9z">
+            </path>
+            <path fill="#37474F"
+              d="M36.9,29.8c-1-1.3-2-2.4-2-4.9v-8.3c0-3.5,0-6.6-2.5-9c-2-1.9-5.3-2.6-7.9-2.6C19,5,14.2,7.2,13,13.4c-0.1,0.7,0.4,1,0.8,1.1l5.1,0.6c0.5,0,0.8-0.5,0.9-1c0.4-2.1,2.1-3.1,4.1-3.1c1.1,0,3.2,0.6,3.2,3v3c-3.2,0-6.6,0-9.4,1.2c-3.3,1.4-5.6,4.3-5.6,8.6c0,5.5,3.4,8.2,7.8,8.2c3.7,0,5.9-0.9,8.8-3.8c0.9,1.4,1.3,2.2,3,3.7c0.4,0.2,0.9,0.2,1.2-0.1l0,0c1-0.9,2.9-2.6,4-3.5C37.4,30.9,37.3,30.3,36.9,29.8z M27,22.1L27,22.1c0,2-0.1,6.9-5,6.9c-3,0-3-3-3-3c0-4.5,4.2-5,8-5V22.1z">
+            </path>
+          </svg>
+        </div>
+        <div class="voucher-info">
+          <div class="voucher-name">Amazon Pay Gift Card</div>
+          <div class="voucher-desc">Redeem on Amazon Pay or on Amazon.in for millions of products</div>
+        </div>
+      </div>
+
+      <div class="voucher-item" data-min="1" onclick="selectVoucher(this)">
+        <div class="voucher-logo">
+          <!-- PhonePe SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+            <path fill="#4527a0"
+              d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5	V37z">
+            </path>
+            <path fill="#fff"
+              d="M32.267,20.171c0-0.681-0.584-1.264-1.264-1.264h-2.334l-5.35-6.25	c-0.486-0.584-1.264-0.778-2.043-0.584l-1.848,0.584c-0.292,0.097-0.389,0.486-0.195,0.681l5.836,5.666h-8.851	c-0.292,0-0.486,0.195-0.486,0.486v0.973c0,0.681,0.584,1.506,1.264,1.506h1.972v4.305c0,3.502,1.611,5.544,4.723,5.544	c0.973,0,1.378-0.097,2.35-0.486v3.112c0,0.875,0.681,1.556,1.556,1.556h0.786c0.292,0,0.584-0.292,0.584-0.584V21.969h2.812	c0.292,0,0.486-0.195,0.486-0.486V20.171z M26.043,28.413c-0.584,0.292-1.362,0.389-1.945,0.389c-1.556,0-2.097-0.778-2.097-2.529	v-4.305h4.043V28.413z">
+            </path>
+          </svg>
+        </div>
+        <div class="voucher-info">
+          <div class="voucher-name">PhonePe Gift Card</div>
+          <div class="voucher-desc">Use for UPI transactions on PhonePe Merchant QR</div>
+        </div>
+      </div>
+
+      <div class="voucher-item" data-min="10" onclick="selectVoucher(this)">
+        <div class="voucher-logo">
+          <!-- Google Play SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+            <defs>
+              <linearGradient x1="18.102" y1="3.244" x2="25.297" y2="34.74" gradientUnits="userSpaceOnUse"
+                id="color-1_L1ws9zn2uD01_gr1">
+                <stop offset="0" stop-color="#35ab4a"></stop>
+                <stop offset="0.297" stop-color="#31a145"></stop>
+                <stop offset="0.798" stop-color="#288739"></stop>
+                <stop offset="1" stop-color="#237a33"></stop>
+              </linearGradient>
+              <linearGradient x1="19.158" y1="23.862" x2="21.194" y2="66.931" gradientUnits="userSpaceOnUse"
+                id="color-2_L1ws9zn2uD01_gr2">
+                <stop offset="0" stop-color="#f14e5d"></stop>
+                <stop offset="0.499" stop-color="#ea3d4f"></stop>
+                <stop offset="1" stop-color="#e12138"></stop>
+              </linearGradient>
+              <linearGradient x1="32.943" y1="14.899" x2="36.541" y2="43.612" gradientUnits="userSpaceOnUse"
+                id="color-3_L1ws9zn2uD01_gr3">
+                <stop offset="0" stop-color="#ffd844"></stop>
+                <stop offset="0.519" stop-color="#ffc63f"></stop>
+                <stop offset="1" stop-color="#ffb03a"></stop>
+              </linearGradient>
+              <linearGradient x1="13.853" y1="5.901" x2="15.572" y2="42.811" gradientUnits="userSpaceOnUse"
+                id="color-4_L1ws9zn2uD01_gr4">
+                <stop offset="0.003" stop-color="#0090e6"></stop>
+                <stop offset="1" stop-color="#0065a0"></stop>
+              </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+              stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+              font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+              <g transform="scale(1,1)">
+                <path
+                  d="M13.488,4.012c-2.694,-1.504 -5.883,-0.234 -7.038,2.311l17.676,17.677l9.014,-9.014z"
+                  fill="url(#color-1_L1ws9zn2uD01_gr1)"></path>
+                <path
+                  d="M33.14,33.014l-9.014,-9.014l-17.676,17.677c1.156,2.546 4.345,3.815 7.038,2.312z"
+                  fill="url(#color-2_L1ws9zn2uD01_gr2)"></path>
+                <path
+                  d="M41.419,28.393c1.72,-0.96 2.58,-2.676 2.581,-4.393c-0.001,-1.717 -0.861,-3.434 -2.581,-4.393l-8.279,-4.621l-9.014,9.014l9.014,9.014z"
+                  fill="url(#color-3_L1ws9zn2uD01_gr3)"></path>
+                <path
+                  d="M6.45,6.323c-0.282,0.625 -0.45,1.329 -0.45,2.085v31.179c0,0.761 0.164,1.463 0.45,2.09l17.674,-17.68z"
+                  fill="url(#color-4_L1ws9zn2uD01_gr4)"></path>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="voucher-info">
+          <div class="voucher-name">Google Play Gift Card</div>
+          <div class="voucher-desc">Redeem on Google Play Store for apps, games, and more</div>
+        </div>
+      </div>
+
+      <div class="error-message" id="voucher-min-error">Selected voucher has a minimum requirement</div>
+    </div>
+
+
+    <button id="withdraw-btn" onclick="processWithdrawal()">Withdraw Now</button>
+  </div>
+
+  <!-- Login container -->
+  <div id="login-container" class="login-container" style="display: none;">
+    <h2>Welcome to Wallet</h2>
+    <p>Sign in to access your wallet balance and make withdrawals</p>
+    <button id="google-login-btn" class="google-login-btn">
+      <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" alt="Google">
+      Sign in with Google
+    </button>
+  </div>
+
+  <div class="popup" id="error-popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3>Notice</h3>
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+      </div>
+      <div class="popup-body" id="popup-message">
+        Message here
+      </div>
+      <div class="popup-footer">
+        <button onclick="closePopup()" class="popup-btn popup-btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

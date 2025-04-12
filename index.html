@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel11 - Cricket Prediction</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Hostel11</div>
+      <div class="profile-container">
+        <img id="profileImg" class="profile-img" src="/api/placeholder/40/40" alt="Profile">
+        <div id="profileDropdown" class="profile-dropdown">
+          <div class="welcome-message">Welcome, <span id="username" class="username">User</span>!</div>
+          <div id="authButtons">
+            <!-- Auth buttons will be dynamically inserted here based on auth state -->
+          </div>
+          <div class="theme-switch-container">
+            <span class="theme-label">Dark Mode</span>
+            <label class="switch">
+              <input type="checkbox" id="themeSwitch">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="welcome-card">
+      <h1 class="welcome-title">WELCOME TO HOSTEL11 (GMCH)</h1>
+      <p class="welcome-text">Where cricket fans become winners! Predict IPL match outcomes, climb our leaderboards, and earn rewards for your cricket knowledge.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon">✓</div>
+        <div class="feature-text"><span class="feature-highlight">No Entry Fees*</span><br><small>*Limited Time OFFER</small></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-text">No need of KYC to withdraw Money, we love simplicity and your privacy</div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="leaderboardBtn" class="btn btn-primary">PAST LEADERBOARD</button>
+      <button id="predictTodayBtn" class="btn btn-secondary">PREDICT UPCOMING MATCHES</button>
+      <button id="walletBtn" class="btn btn-outline">CHECK WALLET BALANCE</button>
+    </div>
+  </div>
+
+  <div id="leaderboardModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Past Leaderboard?</h2>
+        <p class="modal-subtitle"></p>
+      </div>
+      <div id="leaderboardMatchList" class="match-list">
+        <!-- dynamically generated match list -->
+      </div>
+      <div class="modal-footer">
+        <button id="closeLeaderboardModalBtn" class="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prediction Modal -->
+  <div id="predictionModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Ready to Predict?</h2>
+        <p class="modal-subtitle">Get ready to predict today's IPL match and earn points to reach the top of the leaderboard!</p>
+      </div>
+      <div id="predictionMatchList" class="match-list">
+        <!-- dynamically generated match list -->
+      </div>
+      <div class="modal-footer">
+        <button id="closePredictionModalBtn" class="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

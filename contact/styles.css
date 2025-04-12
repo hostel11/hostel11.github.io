@@ -1,0 +1,222 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.hidden {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: .25em;
+  box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+.body {
+  margin: 0;
+  padding-top: 0px;
+}
+
+.logo {
+  padding: 1px;
+  border-radius: 50%;
+  height: 60px;
+}
+
+.header {
+  background-color: none;
+  color: aliceblue;
+  padding: 5px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  text-align: fixed;
+  width: auto;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.5s;
+}
+
+.contact-button {
+  background-color: #fff;
+  color: #3A1237;
+  padding: 18px;
+  border-radius: 25px;
+  font-size: 16px;
+  text-decoration: dashed;
+  margin-right: 10px;
+  margin-left: auto;
+  border: 2px solid #3A1237;
+  transition: all 0.3s linear, color 0.2s;
+  cursor: pointer;
+}
+
+.contact-button:hover {
+  color: #fff;
+  padding: 18px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  text-decoration: dashed;
+  margin-right: 10px;
+  margin-left: auto;
+  border: 2px solid #250523;
+  background-color: #551e50;
+}
+
+.buttons {
+  padding-right: 10px;
+}
+
+.intro-h1 {
+  padding-top: 15px;
+  color: #3A1237;
+  padding-left: 10px;
+  font-family: "Lucida Console";
+  text-align: center;
+  font-weight: 900;
+  font-size: 19px;
+  margin: auto;
+  width: 50%;
+  min-width: 320px;
+}
+
+.form-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  padding-top: 30px;
+  /* height: 130vh; */
+}
+
+#step2 {
+  color: #fff;
+  border: 1px solid white;
+}
+#step2Content {
+  padding: 10px;
+}
+
+form {
+  min-width: 280px;
+  max-width: 360px;
+  padding: 1.5rem;
+  background-color: #1d0d1be4;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size:larger;
+}
+
+label {
+  font-weight: bold;
+  color: #ddd;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="Email"],
+textarea {
+  width: calc(100% - 20px);
+  padding: 12px;
+  border: 1px solid #551e50;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #fff;
+}
+
+.p-notice {
+  color: white;
+}
+
+.submit-button {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #7a3475;
+  border-radius: 15px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.submit-button:hover {
+  background-color: #7a3475;
+  color: #fff;
+  border-color: #fff;
+}
+
+#step2 {
+  color: #fff;
+  border: 1px solid white;
+}
+#step2Content {
+  padding: 10px;
+}
+
+.loading-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.112);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000; /* Make sure it covers other content */
+  }
+  
+  .loading-content {
+	text-align: center;
+  }
+
+.hidden {
+	display: none;
+}
+
+.loader {
+	color: #ffffff;
+}
