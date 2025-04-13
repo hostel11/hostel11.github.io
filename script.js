@@ -302,7 +302,7 @@ function createPredictionCard(matchId, dateStr) {
 createLeaderboardCard('cskvskkr', '120425');
 createLeaderboardCard('lsgvsgt', '120425');
 createLeaderboardCard('srhvspbks', '120425');
-createPredictionCard('rrvsrcb', '130425');
-createPredictionCard('dcvsmi', '130425');
-// createPredictionCard('lsgvscsk', '140425');
-// createPredictionCard('pbksvskkr', '150425');
+createLeaderboardCard('rrvsrcb', '130425');
+createLeaderboardCard('dcvsmi', '130425');
+createPredictionCard('lsgvscsk', '140425');
+createPredictionCard('pbksvskkr', '150425');
